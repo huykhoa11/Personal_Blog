@@ -1,0 +1,24 @@
+<div class=" w-full px-4 py-4 bg-white rounded-sm shadow-lg">
+    <div class="flex items-center space-x-4 mb-3">
+        <i class="fa-solid fa-star text-2xl text-red-500"></i>
+        <h2 class="text-2xl mb-4">Categories</h2>
+    </div>
+    <ul class=" flex flex-col space-y-3">
+        <li class=" flex items-center space-x-2 hover:text-blue-400 hover:cursor-pointer ease-in duration-100">
+            <i class="fa-solid fa-code"></i>
+            <%= link_to 'Technology', Category.find_by(id: 1), class: "text-lg" %>
+        </li>
+        <li class=" flex items-center space-x-2 hover:text-blue-400 hover:cursor-pointer ease-in duration-100">
+            <i class="fa-solid fa-hand-holding-hand"></i>
+            <%= link_to 'Chia sẻ', Category.find_by(id: 2), class: "text-lg" %>
+        </li>
+        <li class=" flex items-center space-x-2 hover:text-blue-400 hover:cursor-pointer ease-in duration-100">
+            <i class="fa-solid fa-briefcase"></i>
+            <%= link_to 'Cuộc sống cá nhân', Category.find_by(id: 3), class: "text-lg" %>
+        </li>
+        <li class=" flex items-center space-x-2 hover:text-blue-400 hover:cursor-pointer ease-in duration-100">
+            <i class="fa-solid fa-spell-check"></i>
+            <%= link_to 'Tiếng Nhật', Category.find_by(id: 4), class: "text-lg" %>
+        </li>
+    </ul>
+</div>

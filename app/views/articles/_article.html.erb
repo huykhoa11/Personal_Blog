@@ -1,0 +1,23 @@
+<li class=" w-full h-44 flex items-start space-x-5 bg-white rounded-sm shadow-lg">
+  <img src="https://picsum.photos/id/250/300/160" class="">
+  <div class="pt-3 relative flex-1 h-full">
+    <%= link_to "#{article.title}", article, class: "text-lg font-medium text-blue-600 hover:cursor-pointer hover:underline hover:underline-offset-1" %>
+
+    <div class=" h-full text-sm absolute -bottom-3/4 right-5 text-gray-400">
+      <i class="fa-solid fa-clock"></i> <%= article.updated_at.strftime("%Y.%m.%d") %>
+    </div>
+  </div>
+</li>
+
+
+<div id="<% dom_id article %>">
+  <p class="my-5">
+    <% article.title %>
+  </p>
+
+  <% if action_name != "show" %>
+    <% link_to "Show this article", article, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% link_to 'Edit this article', edit_article_path(article), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

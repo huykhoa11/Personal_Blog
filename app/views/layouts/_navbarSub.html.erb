@@ -1,0 +1,20 @@
+<nav class=" h-36 flex justify-center items-center bg-gradient-to-br via-slate-50 from-blue-300 to-blue-300">
+    <% if @paramsFromUrl != '' %>
+        <div class="flex flex-col justify-center items-center space-y-3">
+            <div class="flex justify-between items-center space-x-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+                <% if @article %>
+                    <h1 class="text-2xl"><%=t @article.title %></h1>
+                <% else %>
+                    <h1 class="text-2xl"><%=t @paramsFromUrl %></h1>
+                <% end %>
+            </div>
+            <% @categoryIdFindByParams = Category.find_by(name: "#{params[:id]}") %>
+            <% if @categoryIdFindByParams %>
+                <p class="text-xl font-normal"><%= Article.where(category_id: @categoryIdFindByParams.id).count %> articles</p>
+            <% end %>
+        </div>
+    <% end %>
+    
+    
+</nav>
