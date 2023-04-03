@@ -30,6 +30,7 @@ gem "jbuilder"
 gem 'devise'
 gem 'friendly_id', '~> 5.4.0'
 gem 'breadcrumbs_on_rails'
+gem 'ransack'
 # gem "ruby-vips"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

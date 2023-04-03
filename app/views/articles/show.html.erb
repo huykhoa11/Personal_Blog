@@ -7,9 +7,10 @@
 
   <div class=" w-full pl-16 pr-14 flex justify-between items-start space-x-5 ">
 
-    <div class=" w-3/5 px-6 py-7 bg-white rounded-sm shadow-lg">
-      <h1 class="text-3xl py-4 px-4 mb-5 bg-sky-600 text-white"><%= @article.title %></h1>
-      <%= @article.content %>
+    <div class=" w-3/5 flex flex-col px-6 py-7 bg-white rounded-sm shadow-lg">
+      <h1 class="text-3xl py-4 px-4 bg-sky-600 text-white"><%= @article.title %></h1><br>
+      <p class="text-sm text-gray-400 self-end w-fit"><i class="fa-solid fa-clock"></i> <%= @article.updated_at.strftime("%Y.%m.%d") %></p>
+      <p class="mt-5"><%= @article.content %></p>
     </div>
 
     <div class=" w-1/3">
