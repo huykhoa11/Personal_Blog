@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def show
     @articlesFilteredByCategory = Article.where(category_id: @category.id)
-    add_breadcrumb "#{@category.name}"
+    add_breadcrumb "#{t @category.name}"
   end
 
   private
