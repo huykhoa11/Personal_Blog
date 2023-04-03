@@ -1,4 +1,4 @@
-<div class=" w-full flex justify-between items-start space-x-5 absolute px-10">
+<div class=" w-full flex justify-between items-start space-x-5 px-10">
   <ul class=" w-3/5 space-y-7">
     <% @articlesFilteredByCategory.each do |article| %>
           <%= render partial: 'articles/article', locals: {article: article}%>
@@ -9,3 +9,6 @@
     <%= render 'categories/categoriesSideList' %>
   </div>
 </div>
+
+<%= render 'layouts/bottomNavbar' %>
+
