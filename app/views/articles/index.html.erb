@@ -3,6 +3,10 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
+  <% if user_signed_in? %>
+    <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+  <% end %>
+
   <main class=" w-full flex justify-between items-start space-x-4 pl-16 pr-14">
     <%# Left screen - Show articles %>
     <ul class=" w-3/5 space-y-7">

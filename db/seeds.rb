@@ -7,3 +7,4 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Category.create!([{name: 'technology'}, {name: 'sharing'}, {name: 'life'}, {name: 'japanese'}])
+User.create!({email: ENV["ADMIN_EMAIL"], password: ENV["ADMIN_PASSWORD"]})

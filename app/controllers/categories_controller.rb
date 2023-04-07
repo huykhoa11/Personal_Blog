@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show ]
 
   def show
+    
     @articlesFilteredByCategory = Article.where(category_id: @category.id)
     add_breadcrumb "#{t @category.name}"
   end
@@ -10,6 +11,7 @@ class CategoriesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_category
     @category = Category.friendly.find(params[:id])
+    @q = Article.ransack(params[:q])
   end
 
   # Only allow a list of trusted parameters through.

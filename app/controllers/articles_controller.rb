@@ -1,12 +1,15 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i[ new create edit update destroy]
-  before_action :set_article, only: %i[ edit update destroy ]
+  before_action :set_article, only: %i[ new edit update destroy ]
+  #before_action :set_search_ransack
 
   # GET /articles or /articles.json
   def index
     @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: true).order(updated_at: :desc)
-    # @articles = Article.all.with_rich_text_content.order(updated_at: :desc)
+    @articles = @q.result(distinct: false).order(updated_at: :desc)
+    if params[:q].blank?
+      @articles = Article.all.with_rich_text_content.order(updated_at: :desc)
+    end
   end
 
   # GET /articles/1 or /articles/1.json
@@ -19,7 +22,6 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     add_breadcrumb "Create new article", new_article_path
-
   end
 
   # GET /articles/1/edit
@@ -70,6 +72,8 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
+      # @q = Article.ransack(params[:q])
+      # @articles = @q.result(distinct: true)
       @article = Article.find(params[:id])
     end
 

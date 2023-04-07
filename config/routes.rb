@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # get 'categories/:slug', to: 'application#get_category_name'
   resources :categories, only: [:show]
   resources :articles
-  devise_for :users
+  devise_for :users, path_names: {
+    sign_up: ''
+  }
   root 'articles#index'
   # root 'articles#index', :path_prefix => '/:locale'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
